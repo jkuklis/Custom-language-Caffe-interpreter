@@ -1,0 +1,15 @@
+int g(int a) {
+    int f(int a) {
+        return 4;
+    }    
+    return 3;
+}
+
+
+int main () {
+    return f(3);
+}
+
+int f(int a) {
+    return 5;
+}

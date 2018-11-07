@@ -1,0 +1,43 @@
+-- Jakub Kuklis jk371125
+
++ Na 6 punktów
+  1 (jeden typ)
+  2 (zmienne, przypisanie)
+  3 (if)
++ 4 (while/goto) -- while
+  5 (arytmetyka)
+  6 (porównania)
+
++ Na 12 punktów
+  7 (funkcje/procedury)
+
++ Na 14 punktów
+  1 (dwa typy)
+  2 (arytmetyka, porównania)
+  3 (while, if)
+  4 (procedury lub funkcje, rekurencja)
+  5 (print)
+  6 a) (przez zmienną i wartość)
+    b) (pętla for)
++   c) (string i rzutowania)
++   d) (wyrażenia z = ++ += itd)
+
++ Na 17 punktów
+  7 (statyczne typowanie)
+
++ Na 20 punktów
+  8 (przesłanianie i statyczne wiązanie)
+  9 (obsługa błędów wykonania)
+  10 (funkcje zwracające wartość)
++ 11 a) (rekordy)
++    b) (tablice/listy) -- tablice
+     c) (słowniki)
+     d) (krotki z przypisaniem)
++    e) (break, continue)
++    f) (funkcje jako parametry)
++    g) (funkcje w wyniku, domknięcia)
++    h) (funkcje anonimowe)
+
++ Na 24 punkty
+  12 (funkcje zagnieżdżone ze statycznym wiązaniem)
+  13 (jeszcze coś lub dwa)

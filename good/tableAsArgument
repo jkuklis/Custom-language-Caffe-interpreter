@@ -1,0 +1,17 @@
+int determinant2x2 (int[][] a) {
+    return a[0,0] * a[1,1] - a[0,1] * a[1,0];
+}
+
+int main() {
+    int[][] a = [[2, 1], [1, 0]];
+
+    print a;
+
+    print determinant2x2(a);
+
+    a = [[3], [2]];
+
+    print a;
+
+    return 0;
+}

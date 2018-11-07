@@ -1,0 +1,13 @@
+int f() {
+    int a = 3;
+
+    return 5;
+}
+
+int main () {
+    {
+        int a = 10;
+    }
+
+    return a;
+}

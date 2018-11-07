@@ -1,0 +1,11 @@
+int f(bool b) {
+    if (b) {
+        return 5;
+    } fi
+    return -5;
+}
+
+int main() {
+    int c = 10;
+    return f(c);
+}

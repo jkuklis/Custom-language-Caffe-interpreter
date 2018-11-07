@@ -1,0 +1,31 @@
+int g(int x) {
+    return x + 1;
+}
+
+int f(int x, int y) {
+    int g(int x) {
+        x = 2;
+        print x;
+        return x - 1;    
+    }
+    print x;  
+    return 3 * g(x) + y;
+}
+
+int main() {
+    int x = g(4);
+
+    print x;
+
+    int y = g(x) * g(x);
+
+    print y;
+
+    print f(x,y);
+
+    print x;
+
+    print y;
+
+    return 0;    
+}

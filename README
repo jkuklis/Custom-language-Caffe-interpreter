@@ -1,0 +1,45 @@
+
+
+Uruchomienie:
+
+Polecenie make uruchamia m.in. cabal update, które chwilę się wykonuje. Poza tym powinno poprawnie stworzyć program 'interpreter'. Polecenie to zastępuje Makefile innym plikiem, dlatego załączyłem także plik Makefile_copy. Interpreter pozwala wczytać program z pliku lub bezpośrednio z wejścia.
+
+
+
+Caffe:
+
+Język imperatywny, wzorowany na C i Latte.
+
+Program jest listą definicji funkcji i struktur (rekordów).
+
+Definicja funkcji zawiera typ zwracanej wartości (void dla procedur), nazwę, listę argumentów oraz blok instrukcji. Do poprawnego wykonania w programie musi pojawić się funkcja o nazwie 'main' i zwracanym typie int. Funkcje mogą być rekurencyjne, ale nie wzajemnie rekurencyjne. Dostępne są funkcje anonimowe. Parametry przekazywane są przez wartość.
+
+Definicja struktury zawiera słowo kluczowe "struct", nazwę i blok z atrybutami rekordu. Aktualnie wspierany jest tylko jednopoziomowy dostęp do atrybutów.
+
+Instrukcje standardowe. Deklaracje funkcji mogą być zagnieżdżone.
+
+Deklaracje zmiennych odbywają się w funkcjach - brak zmiennych globalnych. Niedozwolone jest używanie niezadeklarowanych zmiennych, możliwa jest jednak redeklaracja z innym typem - także redeklaracja funkcji. Niezainicjalizowane zmienne typu Int, String, Bool, Void otrzymują domyślne wartości. Zmienne są wiązane statycznie, zmienne lokalne przesłaniają zewnętrzne (mechanizm lokacji i stanu).
+
+Poza typami podstawowymi występują także typ tablicowy parametryzowany typem, typ struktury z odwołaniem do definicji struktury w środowisku oraz typ funkcyjny parametryzowany zwracanym typem oraz typami argumentów.
+
+Wbudowane w język są słówka kluczowe 'print', 'stoi' - string to int, 'itos' - int to string.
+
+
+
+Implementacja:
+
+Program zawiera definicje "główne" oraz takie z dopisaną literą "T" na końcu. Te pierwsze odpowiają za wykonanie programu, te drugie za sprawdzanie typów.
+
+Typ Result - odpowiada za możliwe wartości uzyskane przy wykonywaniu programu. RTab przechowuje swoją wielkość.
+
+Typ MType - opakowanie na typy z AbsGrammar. MType jako konstruktor odpowiada typowi, o którego zwróceniu jesteśmy pewni - inaczej niż dla UType używanego np. wtedy, gdy wartość została zwrócona w gałęzi if'a. NotYet używane jest do zaznaczenia braku sprecyzowanego w danym momencie wyniku, Counter to licznik liczby zapisanych w stanie wartości, MBreak i MCont służą wyłapywaniu breaków i continue poza while'ami.
+
+eval wylicza wartość wyrażenia, runStmt wykonuje listę poleceń, interpret wykonuje cały program.
+
+Każda z powyższych funkcji zwraca ExceptT Exception (RWS Env Log Context) __typ__. Interpret parametryzowany jest przez Integer, pozostałe przez Result.
+
+Env zawiera definicje struktur i lokacji. Context zawiera wartości przypisane lokacjom. Log służy obsłudze funkcji 'print'
+
+Podobnie działają evalT, runStmtT i interpretT, tylko, ze parametryzowane są one przez MType.
+
+

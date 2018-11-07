@@ -1,0 +1,9 @@
+int g(int x) {
+    return 3 * x;
+}
+
+int main() {
+    g = int lambda (int c) -> {int x = 100; return c + 1;};
+
+    return g(4);
+}

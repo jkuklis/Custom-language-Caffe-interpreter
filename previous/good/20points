@@ -1,0 +1,49 @@
+struct str {
+    string b;
+    int a;
+}
+
+int gg (int z) {
+    return 5 * z;
+}
+
+void a (int c) {
+    string b = "awd";
+
+    if (false) {
+        a(4);
+    } fi
+
+    c + 3;
+}
+
+int main() {
+    int x = 2, y, z = 3;
+
+    struct str g = str {a = gg(3), b = "c"};
+
+    int [] c = [3];
+    int [][] d = [[4],[gg(5)]];
+    
+    print d;
+
+    z = 3 + x + y + g.a;
+    
+    x += 3;
+
+    x++;
+
+    g.a = 3;
+    g.a += g.a;
+
+    int (int) ff = int lambda (int c) -> {int x = 100; return c + 1;};
+    int h = ff(4);
+
+    print h;
+
+    print g;
+
+    a(x);
+
+    return x;
+}

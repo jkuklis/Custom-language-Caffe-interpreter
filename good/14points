@@ -1,0 +1,34 @@
+int g(int c) {
+    if (c > 0) {
+        return g(c-1) * 2;
+    } fi
+
+    return 1;
+}
+
+
+int main () {
+    
+    int a = 5;
+    bool c = (a = 2) > 3;
+    print c;
+    print a;
+
+    bool d = false && c;
+    string s = "alfa";
+    
+    int i = 5;
+
+  
+    a += stoi ("3");
+  
+    string ss = itos (10 * a);
+    print ss;
+
+    while (i >= 0) {
+        print g(i);
+        i--;
+    }    
+    
+    return 0;   
+}

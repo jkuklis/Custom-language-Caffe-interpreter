@@ -1,0 +1,20 @@
+int g(int a, int b, int c) {
+    return a * b * c;
+}
+
+int fact(int n) {
+    if (n > 0) {
+        int a = 3;       
+        return n * fact(n-1);
+        return 5; 
+    } fi
+    return 1;
+}
+
+int main () {
+    print g(3,2,1);
+
+    print fact(3);
+
+    return 0;
+}

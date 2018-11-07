@@ -1,0 +1,21 @@
+// basic - na 6 punktów
+
+int main () {
+    int a = 5;
+    int two = 2;
+    string y = "To nie powinno sie pojawic";
+
+    if (a == 3) {
+        print "To nie powinno sie pojawic";
+    } elif (a == two * two) {
+        print "To tez nie";
+    } else {
+        print "To powinno sie pojawic";            
+    } fi
+
+    int a = (2 + 4 - 1 * 2) / 2;
+
+    print a;    
+
+    return 0;
+}

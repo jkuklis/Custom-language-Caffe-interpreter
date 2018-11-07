@@ -1,0 +1,20 @@
+struct str {
+    int a;
+    int b;
+}
+
+int g(struct str s, int x) {
+    return s.a * x + s.b;
+}
+
+struct str f(int a, int b) {
+    return str{a = a, b = b};
+}
+
+int main () {
+    print g(str{a = 5, b = 3}, 2); 
+
+    print f(8,6);
+
+    return 0;
+}

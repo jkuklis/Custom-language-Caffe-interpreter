@@ -1,0 +1,5 @@
+int main () {
+    int a = "acd";
+
+    return 0;
+}

@@ -1,0 +1,8 @@
+struct circle {
+    int a;
+    bool b;
+}
+
+int main () {
+    struct circle c = crcle {a = 5, b = true};
+}

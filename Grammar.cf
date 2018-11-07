@@ -1,0 +1,218 @@
+    -- programs ----
+
+
+    Program.    Prog    ::= [Def] ;
+
+    FnDecl.     Def     ::= FuDef ;
+
+    FunDef.     FuDef   ::= Type Ident "(" [Par] ")" Block ;
+
+    RecDef.     Def     ::= "struct" Ident "{" [AtrNot] "}" ;
+
+    AtrNotIn.   AtrNot  ::= Type Ident ";" ;
+
+    AtrInR.     AtrIn   ::= Ident "=" Expr ;
+
+
+    entrypoints Prog ;
+
+    separator nonempty Def "" ;
+
+    separator AtrIn "," ;
+
+    separator AtrNot "" ;
+
+
+    -- statements ----
+
+
+    Blck.       Block   ::= "{" [Stmt] "}" ;
+
+    Empty.      Stmt    ::= ";" ;
+
+    BStmt.      Stmt    ::= Block;
+
+    Decl.       Stmt    ::= Type [Item] ";" ;
+
+    NoInit.     Item    ::= Ident ;
+
+    Init.       Item    ::= Ident "=" Expr ;
+
+-- Expr instead of statements
+
+    Ret.        Stmt    ::= "return" Expr ";" ;
+
+    VRet.       Stmt    ::= "return" ";" ;
+
+    Cond.       Stmt    ::= "if" "(" Expr ")" Stmt "fi" ;
+
+    CondElse.   Stmt    ::= "if" "(" Expr ")" Stmt "else" Stmt "fi" ;
+
+    CondElif.   Stmt    ::= "if" "(" Expr ")" Stmt [Elif] "else" Stmt "fi" ;
+
+    Elf.        Elif    ::= "elif" "(" Expr ")" Stmt ;
+
+    While.      Stmt    ::= "while" "(" Expr ")" Stmt ;
+
+    Eval.       Stmt    ::= Expr ";" ;
+
+    Break.      Stmt    ::= "break" ";" ;
+
+    Cont.       Stmt    ::= "continue" ";" ;
+
+    InDecl.     Stmt    ::= FuDef ;
+
+    Print.      Stmt    ::= "print" Expr ";" ;
+
+
+    separator Stmt "" ;
+
+    separator nonempty Elif "";
+
+    separator nonempty Item "," ;
+
+
+    -- types ----
+
+
+    Int.        Type    ::= "int" ;
+
+    Str.        Type    ::= "string" ;
+
+    Bool.       Type    ::= "bool" ;
+
+    Void.       Type    ::= "void" ;
+
+    Tab.        Type    ::= Type "[]" ;
+
+    Fun.        Type    ::= Type "(" [Type] ")" ;
+
+    Struct.     Type    ::= "struct" Ident ;
+
+
+    separator Type "," ;
+
+
+    -- expressions ----
+
+
+    EVar.       Expr6   ::= Ident ;
+
+    ELitInt.    Expr6   ::= Integer ;
+
+    ELitTrue.   Expr6   ::= "true" ;
+
+    ELitFalse.  Expr6   ::= "false" ;
+
+    EApp.       Expr6   ::= Ident "(" [Expr] ")" ;
+
+    EString.    Expr6   ::= String ;
+
+    ETab.       Expr6   ::= "new" Type "[" [Integer] "]" ;
+
+    ETabIndex.  Expr6   ::= Ident "[" [Integer] "]" ;
+
+    ELambda.    Expr6   ::= Type "lambda" "(" [Par] ")" "->" Stmt ;
+
+    Param.      Par     ::= Type Ident ;
+
+    Attrib.     Attr    ::= Ident "." [Ident] ; -- actually only one level is supported in typechecker
+
+    EAttrib.    Expr6   ::= Attr ;
+
+    TableIni.   Expr6   ::= "[" [Expr] "]" ;
+
+    StructIni.  Expr6   ::= Ident "{" [AtrIn] "}" ;
+
+    ItoS.       Expr6   ::= "itos" "(" Expr ")" ;
+
+    StoI.       Expr6   ::= "stoi" "(" String ")" ;
+
+    Neg.        Expr5   ::= "-" Expr6 ;
+
+    Not.        Expr5   ::= "!" Expr6 ;
+
+    EMul.       Expr4   ::= Expr4 MulOp Expr5 ;
+
+    EAdd.       Expr3   ::= Expr3 AddOp Expr4 ;
+
+    ERel.       Expr2   ::= Expr2 RelOp Expr3 ;
+
+    EAnd.       Expr1   ::= Expr2 "&&" Expr1 ;
+
+    EOr.        Expr    ::= Expr1 "||" Expr ;
+
+    Assign.     Expr    ::= Ident "=" Expr ;
+
+    AssignAttr. Expr    ::= Attr "=" Expr ;
+
+    Change.     Expr    ::= Ident ChOp Expr ;
+
+    ChangeAttr. Expr    ::= Attr ChOp Expr ;
+
+    IncrDecr.   Expr    ::= Ident CrOp ;
+
+    IncrDecrA.  Expr    ::= Attr CrOp ;
+
+    
+
+
+    coercions Expr 6 ;
+
+    separator Expr "," ;
+
+    separator Par "," ;
+
+    separator nonempty Integer "," ;
+
+    separator nonempty Ident "." ;
+
+
+    -- operators ----
+
+
+    Plus.       AddOp   ::= "+" ;
+
+    Minus.      AddOp   ::= "-" ;
+
+    Times.      MulOp   ::= "*" ;
+
+    Div.        MulOp   ::= "/" ;
+
+    Mod.        MulOp   ::= "%" ;
+
+    LTo.        RelOp   ::= "<" ;
+
+    LEo.        RelOp   ::= "<=" ;
+
+    GTo.        RelOp   ::= ">" ;
+
+    GEo.        RelOp   ::= ">=" ;
+
+    EQo.        RelOp   ::= "==" ;
+
+    NEo.        RelOp   ::= "!=" ;
+
+    ChIncr.     ChOp    ::= "+=" ;
+
+    ChDecr.     ChOp    ::= "-=" ;
+
+    ChMul.      ChOp    ::= "*=" ;
+
+    ChDiv.      ChOp    ::= "/=" ;
+
+    ChMod.      ChOp    ::= "%=" ;
+
+    Incr.       CrOp    ::= "++" ;
+
+    Decr.       CrOp    ::= "--" ;
+
+
+    -- comments ----
+
+
+    comment     "#" ;
+
+    comment     "//" ;
+
+    comment     "/*" "*/" ;

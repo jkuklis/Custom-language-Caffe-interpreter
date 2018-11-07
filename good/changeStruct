@@ -1,0 +1,22 @@
+struct str {
+    int a;
+    int b;
+}
+
+struct str zmien(struct str s) {
+    s.a = 17;
+    return s;
+}
+
+int main() {
+    struct str s = str{a = 42, b = 42};
+    print s;
+    struct str t = zmien(s);
+    print t;
+    print s;
+    s.b = 19;
+    print t;
+    print s;
+
+    return 0;
+}

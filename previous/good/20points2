@@ -1,0 +1,33 @@
+int() f (int c) {
+    return int lambda () -> return c + 1; ;
+}
+
+int(bool) g(int a) {
+    return int lambda (bool b) -> {
+        if (b) { 
+            return a;
+        } fi
+        return -a; 
+    };
+}
+
+int h(int(bool) e) {
+    return e(true);
+}
+
+int main () {
+    
+    int() c = f(10);
+    
+    int d = c();
+
+    print d;
+
+    int(bool) e = g(3);
+
+    print e(false);
+
+    print h(e);
+
+    return 0;
+}

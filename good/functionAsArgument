@@ -1,0 +1,14 @@
+int g(int x) {
+    return 3 * x;
+}
+
+int f(int(int) funPar, int c) {
+    return g(c);
+}
+
+int main () {
+    
+    print f(g, 4);
+
+    return 0;
+}

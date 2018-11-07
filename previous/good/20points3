@@ -1,0 +1,20 @@
+int main () {
+
+    int i = 21;
+
+    while (true) {
+        i--;
+    
+        if (i % 2 != 0) {
+            continue;
+        } fi
+
+        print i;
+
+        if (i == 0) {
+            break;
+        } fi
+    }   
+
+    return 0;
+}
